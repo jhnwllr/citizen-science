@@ -34,13 +34,13 @@ PD = PD %>% mutate(plotCat = as.factor(plotCat))
 PD$plotCat = factor(PD$plotCat, level =c("Bird","Plant","Insect","Mammal","Fungi","Other"))
 color = c("#dddddd","#509E2F","#777777","#D66F27","#C2938D","#ff9f00")
 
-highchart() %>%
+hc = highchart() %>%
         hc_add_series(PD, "bar", 
         hcaes(x=species,y=occCounts, group = plotCat), 
         color = color, 
         showInLegend=c(TRUE,TRUE,TRUE,TRUE,TRUE,TRUE),
-        visible = c(FALSE,TRUE,TRUE,TRUE,TRUE,TRUE)) %>%
+        visible = c(TRUE,TRUE,TRUE,TRUE,TRUE,TRUE)) %>%
         hc_yAxis(title = list(text = "number of occurrence records")) %>%
         hc_xAxis(title = list(text = "index of species"))
 
-
+htmlwidgets::saveWidget(hc, file="C:/Users/ftw712/Desktop/highchart.html")
