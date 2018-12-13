@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544543371524.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "5076B5D0",
+    "lastKnownWriteTime" : 1544543570,
+    "last_content_update" : 1544543570119,
+    "path" : "C:/Users/ftw712/Desktop/citizen science/R/csHighChartsTopSpecies.r",
+    "project_path" : "R/csHighChartsTopSpecies.r",
+    "properties" : {
+        "cursorPosition" : "24,43",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
