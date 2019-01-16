@@ -18,6 +18,7 @@ D = D %>%
   gbifapi::addTaxonInfo(specieskeys) %>% # add kingdom class phylum ect to data.frame
   as.data.frame() 
 
+print("test")
 # plot categroies 
 D$plotCat = "Other"
 D$plotCat[D$class == "Aves"] = "Bird"
@@ -27,20 +28,20 @@ D$plotCat[D$kingdom == "Plantae"] = "Plant"
 D$plotCat[D$kingdom == "Fungi"] = "Fungi"
 PD = D
 
-PD = PD %>% mutate(plotCat = as.factor(plotCat))
+# PD = PD %>% 
 # mutate(plotCat = fct_reorder(plotCat, c("Bird","Fungi","Insect","Mammal","Other","Plant")))
-
+# mutate(plotCat = as.factor(plotCat))
 
 PD$plotCat = factor(PD$plotCat, level =c("Bird","Plant","Insect","Mammal","Fungi","Other"))
 color = c("#dddddd","#509E2F","#777777","#D66F27","#C2938D","#ff9f00")
 
 hc = highchart() %>%
         hc_add_series(PD, "bar", 
-        hcaes(x=species,y=occCounts, group = plotCat), 
+        hcaes(x="species",y="occCounts", group = "plotCat"), 
         color = color, 
         showInLegend=c(TRUE,TRUE,TRUE,TRUE,TRUE,TRUE),
         visible = c(TRUE,TRUE,TRUE,TRUE,TRUE,TRUE)) %>%
         hc_yAxis(title = list(text = "number of occurrence records")) %>%
         hc_xAxis(title = list(text = "index of species"))
 
-htmlwidgets::saveWidget(hc, file="C:/Users/ftw712/Desktop/highchart.html")
+htmlwidgets::saveWidget(hc, file="C:/Users/ftw712/Desktop/csPlotTopSpecies.html",selfcontained = TRUE)
